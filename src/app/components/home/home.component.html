@@ -1,0 +1,17 @@
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">App de Peliculas</h1>
+    <p class="lead">Esta aplicación tiene datos de la API de The MovieDB</p>
+  </div>
+</div>
+<div class="container mb-2 home">
+  <h1>Peliculas en Cartelera</h1>
+  <hr>
+  <app-galeria [peliculas]="cartelera | slice:0:6"></app-galeria>
+  <h1 class="mt-5">Populares</h1>
+  <hr>
+  <app-galeria [peliculas]="populares | slice:0:6"></app-galeria>
+  <h1 class="mt-5">Infantiles</h1>
+  <hr>
+  <app-galeria [peliculas]="infantiles | slice:0:6"></app-galeria>
+</div>

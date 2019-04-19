@@ -1,0 +1,26 @@
+<div class="container main-container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="form-group">
+        <label class="text-white">Buscar:</label>
+        <input type="text" class="form-control" placeholder="Nombre de tu Pelicula Favorita" [(ngModel)]="buscar" name="buscar"
+          (keyup.enter)="search()">
+      </div>
+    </div>
+  </div>
+  <div class="row animated fadeIn fast">
+    <div class="card-columns">
+      <div class="card" *ngFor="let i of _peliculasService.peliculas">
+        <img [src]="i | imagenPelicula" class="card-img-top" [alt]="i.original_title">
+        <div class="card-body">
+          <h5 class="card-title">{{ i.original_title }}</h5>
+          <p class="card-text">{{ i.overview }}</p>
+          <button type="button" class="btn btn-outline-primary btn-block" [routerLink]="['/movie', i.id, 'search', buscar]">
+            Ver más...
+          </button>
+        </div>
+      </div>
+    </div>
+    <h1 class="text-white text-center mt-5" *ngIf="_peliculasService.peliculas.length === 0">No hay Resultados ...</h1>
+  </div>
+</div>
